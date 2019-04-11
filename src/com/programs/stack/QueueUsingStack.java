@@ -1,5 +1,6 @@
 package com.programs.stack;
 
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 /**
@@ -27,6 +28,9 @@ public class QueueUsingStack<T> {
 	}
 	
 	public T dequeue() {
+		if(isEmpty()) {
+			throw new NoSuchElementException("Queue is empty.");
+		}
 		if(stack2.isEmpty()) {
 			while(!stack1.isEmpty()) {
 				stack2.push(stack1.pop());
@@ -34,6 +38,18 @@ public class QueueUsingStack<T> {
 		}
 		size--;
 		return stack2.pop();
+	}
+	
+	public T peek() {
+		if(isEmpty()) {
+			throw new NoSuchElementException("Queue is empty.");
+		}
+		if(stack2.isEmpty()) {
+			while(!stack1.isEmpty()) {
+				stack2.push(stack1.pop());
+			}
+		}
+		return stack2.peek();
 	}
 	
 	public int size() {
