@@ -22,4 +22,20 @@ public class StackOperations<T> {
 		insertAtBottom(element, stack);
 		stack.push(item);
 	}
+	
+	public void sortStackUsingRecursion(Stack<T> stack) {
+		if(stack.isEmpty()) {
+			return;
+		}
+		T element = stack.pop();
+		sortStackUsingRecursion(stack);
+		insertInSortedOrder(element, stack);
+	}
+
+	private void insertInSortedOrder(T element, Stack<T> stack) {
+		if(stack.isEmpty() || stack.peek().compare(element) > 0) {
+			stack.push(element);
+		}
+	}
+	
 }
