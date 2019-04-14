@@ -19,8 +19,8 @@ public class PostfixToInfix {
 		return stack.pop();
 	}
 
-	private static boolean isOperator(char ch) {
-		return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
+	private static boolean isOperator(char value) {
+		return value == '+' || value == '-' || value == '*' || value == '/' || value == '^';
 	}
 	
 }
