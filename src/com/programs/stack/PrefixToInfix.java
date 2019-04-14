@@ -7,14 +7,13 @@ public class PrefixToInfix {
 	public static String convertToInfix(String prefix) {
 		Stack<String> stack = new Stack<>();
 		for(int i = prefix.length() - 1; i >= 0; i--) {
-			char scannerCharacter = prefix.charAt(i);
-			if(isOperator(scannerCharacter)) {
+			if(isOperator(prefix.charAt(i))) {
 				String operand1 = stack.pop();
 				String operand2 = stack.pop();
-				stack.push("(" + operand1 + scannerCharacter + operand2 + ")"); 
+				stack.push("(" + operand1 + prefix.charAt(i) + operand2 + ")"); 
 			}
 			else {
-				stack.push(scannerCharacter + "");
+				stack.push(prefix.charAt(i) + "");
 			}
 		}
 		return stack.pop();
