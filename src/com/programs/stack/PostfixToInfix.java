@@ -22,5 +22,5 @@ public class PostfixToInfix {
 	private static boolean isOperator(char ch) {
 		return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
 	}
-
+	
 }
